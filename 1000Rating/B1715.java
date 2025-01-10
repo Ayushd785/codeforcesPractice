@@ -11,25 +11,25 @@ public class B1715 {
             long b = sc.nextLong();
             long s = sc.nextLong();
             ArrayList<Long> al = new ArrayList<>();
-            long lb = b * k;
-            if (s < lb || (s - lb) > (k * (n - 1))) {
+            long lb = b*k;
+            long ub = b*k + (n)*(k-1);
+            if(s<lb || s>ub){
                 System.out.println(-1);
                 continue;
-            } else {
-                al.add(lb);
-                long diff = s - lb;
-                for(int i = 0;i<n-1;i++){
-                    long val = Math.min((k-1), diff);
-                    al.add(val);
-                    diff-=val;
-                }
             }
-
-            for (int i = 0; i < n; i++) {
+            long first = Math.min(s, b*k + (k-1));
+            al.add(first);
+            long diff = s-first;
+            for(int i = 0;i<n-1;i++){
+                long val = Math.min(diff,k-1);
+                al.add(val);
+                diff -=val;
+            }
+            for (int i = 0; i < al.size(); i++) {
                 System.out.print(al.get(i) + " ");
             }
             System.out.println();
         }
-        sc.close();
+        
     }
 }
