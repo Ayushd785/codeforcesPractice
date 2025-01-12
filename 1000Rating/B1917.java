@@ -6,20 +6,16 @@ public class B1917 {
         while (t-- > 0) {
             int n = sc.nextInt();
             String s = sc.next();
-            HashSet<String> st = new HashSet<>();
-
-            for (int i = s.length() - 1; i >= 0; i--) {
-                String str = s.substring(i);
-
-                st.add(str);
-
-                if (str.length() > 1) {
-                    StringBuilder sb = new StringBuilder(str);
-                    sb.deleteCharAt(1); 
-                    st.add(sb.toString());
+            HashSet<Character> st = new HashSet<>();
+            int ans = 0;
+            for(int i = 0;i<n;i++){
+                if(st.contains(s.charAt(i))){
+                    continue;
                 }
+                st.add(s.charAt(i));
+                ans = ans + s.length() - i;
             }
-            System.out.println(st.size());
-        }
+            System.out.println(ans );
+        }   
     }
 }
