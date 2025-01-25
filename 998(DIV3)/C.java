@@ -15,7 +15,7 @@ public class C {
             Arrays.sort(arr);
             int i = 0;
             int j = n-1;
-            while(i<j){
+            while(i<=j){
                 if(arr[i]+arr[j] == k){
                     ans++;
                     i++;
